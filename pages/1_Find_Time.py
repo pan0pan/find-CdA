@@ -22,7 +22,7 @@ st.markdown("""
 
         .sub-title {
             font-size: 16px;
-            height: 70px;
+            
             margin-top: 10px;
             margin-bottom: 10px;
             border-bottom: 2px solid #85140c;
