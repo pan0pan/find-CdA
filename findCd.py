@@ -14,15 +14,12 @@ class Find_Time_And_CdA:
 
     # Find air resistance
     # this is a function for finding air resistance
-    # this is Equation Fd = (0.5) * (v^2) * (Cd) * (A)
-    # When Fd = Drag Force, v = object velocity, A = area , Cd = Drag Coefficient
+    # this is Equation Fd = (0.5) * (v^2) * (Cd) * (A) * (P)
+    # When Fd = Drag Force, v = object velocity, A = area , Cd = Drag Coefficient, p = 
     def FindDragForce(self, V, CdA, A):
         if A <= 0:
             return 0.5 * self.P * CdA * (V ** 2)
         return 0.5 * self.P * CdA * A * (V ** 2)
-
-
-
 
     #Find Acceleration 
     # from sum(F) = ma
@@ -132,7 +129,7 @@ class Find_Time_And_CdA:
         if abs(TimeTest - time_freefall) <= error_rate:
             # time_test ≈ free-fall => C_dA ≈ 0
             cd_out = 0.0
-            return 0.0
+            return 0.0 , pd.DataFrame({'Cd': history, 'Iteration': list(range(len(history)))})
 
         cd_low = -1
         cdA_hi = 1
